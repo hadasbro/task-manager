@@ -1,0 +1,29 @@
+{
+  "presets": [
+    "react-app",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    "babel-plugin-transform-typescript-metadata",
+    [
+      "@babel/plugin-transform-spread",
+      {}
+    ],
+    [
+      "@babel/proposal-object-rest-spread",
+      {}
+    ],
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ]
+  ]
+}

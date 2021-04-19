@@ -1,0 +1,76 @@
+{
+  "main": {
+    "tasksTitle": "Tasks en",
+    "Settings": "Settings"
+  },
+  "apiConfigPanel": {
+    "configuration": "Configuration",
+    "APIconfiguration": "API configuration",
+    "JiraURL": "Jira URL: ",
+    "JiraToken": "Jira Token:",
+    "pleaseSetUpYourConfigurationAndConfirm": "Please set up your configuration and confirm.",
+    "Confirm": "Confirm"
+  },
+  "settingsPanel": {
+    "settings": "Settings",
+    "settingsInfo": "Settings are applied instantly after change",
+    "activeTaskAlwaysOnTtop": "Active task always on top",
+    "doubleClickShowsDetails": "Double, click shows details",
+    "donandapostShowDetailsAtAll": "Don&apos;t show details at all",
+    "startCountingTime": "Start, counting time:",
+    "automatically": "Automatically",
+    "manually": "Manually",
+    "useJiraTime": "Use, Jira time",
+    "useMyBrowserTime": "Use, my browser time",
+    "refreshInEvery": "Refresh, in every:",
+    "sec": "sec",
+    "inTasksShowTimer": "In, tasks show timer:",
+    "myDailySpentTime": "my daily spent time",
+    "myAllSpentTime": "my, all spent time",
+    "allSpentTimeAllUsers": "all, spent time (all users)",
+    "countWorkingTimeOnlyInHours": "Count, working time only in hours:",
+    "countWorkingTimeOnlyInDays": "Count working time only in days:",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "useJiraTimeUseTimezonetimeFromJira": "Use, JIRA Time - use timezone/time from JIRA",
+    "startCountingTimeInLatestActiveTask": "Start, counting time in latest active task and in declared working hours or always when I use browser (if working hours are not declared)",
+    "confirmAndSave": "Confirm & save",
+    "resetToDefault": "Reset to default",
+    "breakPicker": {
+      "breakFrom": "break from:",
+      "breakTo": "break to:",
+      "breakDelete": "Delete break",
+      "breakAdd": "Add break"
+    }
+  },
+  "activity": {
+    "resolution": "Task #task# - resolution changed by user #user# #from# → #to#",
+    "assignee": "Task #task# reassigned by user #user# #from# → #to#",
+    "attachment": "New attachment in the task #task# added by #user#",
+    "category": "Category change in the task #task#, user #user#.",
+    "comment": "New comment added to the task #task#, user #user#.",
+    "status": "#user# has updated status #from# → #to# in the task #task#",
+    "labels": "#user# has changed labels in the task #task#. #to#",
+    "description": "Descriptions changed by #user# in task #task#",
+    "timeestimate": "#user# updated estimated time #from# → #to# in the task #task#",
+    "timespent": "#user# updated time spent #from# → #to# in the task #task#",
+    "worklogid": "#user# updated worklog in the task #task#",
+    "summary": "#user# updated summary in the task #task#",
+    "priority": "#user# has changed the priority #from# → #to# in the task #task#",
+    "reporter": "Changed reporter #from# → #to# in the task #task#",
+    "type": "Task type change #from# → #to# in the task #task#, user #user#",
+    "watchers": "Updated watchers in the task #task#",
+    "watcher": "Updated watchers in the task #task#",
+    "workflow": "Workflow updated by user #user# for task #task#",
+    "link": "Links added or updated by user #user# in the task #task#",
+    "general": "#user# made changes in the task #task#"
+  },
+  "i18nFeature": {
+    "selectLanguage": "Select Language"
+  }
+}

@@ -1,0 +1,11 @@
+from-rootSaga/
+docs/
+.gradle/
+.idea/
+.vscode/
+task-manager-addon/build
+task-manager-addon/package-lock.json
+task-manager-addon/yarn.lock
+task-manager-addon/.intelij.env
+task-manager-addon/.env
+task-manager-addon/.env.development

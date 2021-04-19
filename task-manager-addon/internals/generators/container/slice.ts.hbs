@@ -1,0 +1,16 @@
+import { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from 'utils/@reduxjs/toolkit';
+import { ContainerState } from './types';
+
+// The initial state of the {{ properCase ComponentName }} container
+export const settingsSliceInitialState: ContainerState = {};
+
+const {{ camelCase ComponentName }}Slice = createSlice({
+  name: '{{ camelCase ComponentName }}',
+  settingsSliceInitialState,
+  reducers: {
+    someAction(state, actions: PayloadAction<any>) {},
+  },
+});
+
+export const { actions, reducer, name: sliceKey } = {{ camelCase ComponentName }}Slice;
