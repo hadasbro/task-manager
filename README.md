@@ -12,6 +12,9 @@ logged time component, people, last activity stream components and a few more.
 
 ------
 
+![Dashoard](resources/dashboard-addon2.png)
+
+------
 
 ![Dashoard](resources/todo-addon.png)
 
