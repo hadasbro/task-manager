@@ -1,4 +1,4 @@
-# Task menager addon
+# Task manager addon
 
 ##### Chrome & Firefox Jira/Targetprocess/Taiga/Backlog add-on
 
