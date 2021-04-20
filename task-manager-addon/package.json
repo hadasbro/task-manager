@@ -41,7 +41,7 @@
     "i18next": "19.3.4",
     "i18next-browser-languagedetector": "4.0.2",
     "jest-styled-components": "7.0.2",
-    "jira.js": "1.8.0",
+    "jira.js": "2.1.0",
     "lint-staged": "10.0.8",
     "localforage": "1.9.0",
     "lodash": "4.17.20",

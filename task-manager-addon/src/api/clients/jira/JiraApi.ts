@@ -1,4 +1,4 @@
-import { Client } from 'jira.js';
+import { AgileClient, Config, Version2Client as Client, Version2Models } from 'jira.js';
 import _ from 'lodash';
 import { normalize } from 'normalizr';
 import {
@@ -12,7 +12,6 @@ import {
   worklogSchema,
 } from './schemas';
 import { TasksFilter } from '../../apiTypes';
-import WorklogEntity from '../../../models/entities/Worklog';
 import { dayjsFormat, reFormatTime } from '../../../extensions/dayjs';
 import { Nullable } from '../../../types/templates/Nullable';
 import PeopleFilter from '../../../types/interfaces/objects/PeopleFilter';
@@ -30,6 +29,8 @@ import { DayjsObj } from '../../../types/interfaces/datetime/DayjsObj';
  */
 export default class JiraApi {
   private client: Client;
+
+  private agileClient: AgileClient;
 
   private static config = {
     worklogWeeksBehind: '-3y', // '-3w',
@@ -105,14 +106,12 @@ export default class JiraApi {
   public services = {
     issueType: {
       getAll: () => {
-        return this.client.issueTypes
-          .getAllIssueTypesForUser()
-          .then(res => normalize(res, [typeSchema]).entities.types! || {});
+        return this.client.issueTypes.getIssueAllTypes().then(res => normalize(res, [typeSchema]).entities.types || {});
       },
 
       getOne: (id: EntityID) => {
         return this.client.issueTypes.getIssueType({ id: id.toString() }).then(res => {
-          const elements = Object.values(normalize(res, typeSchema).entities.types! || {});
+          const elements = Object.values(normalize(res, typeSchema).entities.types || {});
           return elements.length > 0 ? [...elements].shift()! : null;
         });
       },
@@ -133,7 +132,7 @@ export default class JiraApi {
         return this.services.priority
           .getAll()
           .then(pr => Object.values(pr))
-          .then(pr => pr.filter(priority => _.toInteger(priority.id) === _.toInteger(id as string)))
+          .then(pr => pr.filter(priority => _.toInteger(priority.id) === _.toInteger(id)))
           .then(pr => [...pr].shift()!);
       },
 
@@ -145,7 +144,7 @@ export default class JiraApi {
     status: {
       getAll: () => {
         return this.client.workflowStatuses
-          .getAllStatuses()
+          .getStatuses()
           .then(res => normalize(res, [statusSchema]).entities.statuses! || {});
       },
 
@@ -199,7 +198,7 @@ export default class JiraApi {
       },
 
       getOne: (id: EntityID) => {
-        return this.client.issue
+        return this.agileClient.issue
           .getIssue({
             issueIdOrKey: id.toString(),
           })
@@ -254,7 +253,7 @@ export default class JiraApi {
 
       countAll: () => {
         return this.client.userSearch
-          .findUsers({
+          .findUsers<Version2Models.User[]>({
             query: '',
             maxResults: 300,
           })
@@ -340,7 +339,7 @@ export default class JiraApi {
             return Object.values(res || [])
               .reduce((acc, it) => {
                 return [...acc, ...it];
-              }, [] as WorklogEntity[])
+              }, [])
               .filter(wl => {
                 if (userFilter) {
                   return wl.userId === userId;
@@ -509,21 +508,24 @@ export default class JiraApi {
   constructor(config: ApiConfigInterface) {
     const { apiUrl, apiToken, userId } = config.apiCredentials;
 
-    this.client = new Client({
+    const clientConfiguration: Config = {
       host: apiUrl,
       strictGDPR: true,
+      noCheckAtlassianToken: true,
       baseRequestConfig: {
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
-          'X-Atlassian-Token': 'no-check',
         },
       },
       authentication: {
         basic: {
-          username: userId,
+          email: userId,
           apiToken,
         },
       },
-    });
+    };
+
+    this.agileClient = new AgileClient(clientConfiguration);
+    this.client = new Client(clientConfiguration);
   }
 }
