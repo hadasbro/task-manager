@@ -51,5 +51,14 @@ Thanks to anymore1405 for great project [Redux-toolkit-saga](https://github.com/
 Thanks MrRefactoring for [jira.js](https://github.com/MrRefactoring/jira.js).
 
 
+## Contributing
+
+I accept every contribution which makes sense.
+
+Every help makes me happy.
+
+Everything makes me happy, makes sense. 😉🙂
+
+
 ## Authors
 - [Slawomir](https://github.com/hadasbro)
